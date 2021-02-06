@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  h1 #{header}
+  if currentUser.member_status == true
+    form(method='POST' action='')
+        div.form-group
+        div(class='row')
+            div(class='col-3')
+                label(for='title') Message Title:
+                input#title.form-control(type='text', maxlength='15' name='title' value='')
+        div(class='row')
+            div(class='col-3')
+                label(for='text') Message:
+                input#text.form-control(type='text', maxlength='250' name='text' value='')
+        button.btn.btn-primary(type='submit') Submit
+
+  if errors
+   ul
+    for error in errors
+     li!= error.msg

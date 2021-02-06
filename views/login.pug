@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  h1 #{title}
+
+  form(method='POST' action='')
+    div.form-group
+    div(class='row')
+        div(class='col-3')
+            label(for='user_name') User Name:
+            input#user_name.form-control(type='text', maxlength='10' name='user_name' value='')
+    div(class='row')
+        div(class='col-3')
+          label(for='password') Password:
+          input#password.form-control(type='password', maxlength='8' name='password' value='')
+    button.btn.btn-primary(type='submit') Submit
+
+  if errors
+   ul
+    for error in errors
+     li!= error.msg

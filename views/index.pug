@@ -1,0 +1,15 @@
+extends layout
+
+block content
+
+
+  ul
+    each message in message_list
+      div(class='card' style='width: 18rem;')
+        h1 #{message.title}
+        p #[strong Date:] #{message.date_formated}
+        p #[strong Message:] #{message.text}
+        if currentUser && currentUser.member_status == true
+          p #[strong UserName] #{message.user.user_name}
+    else
+      li There are no messages.
